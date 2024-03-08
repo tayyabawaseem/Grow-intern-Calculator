@@ -107,4 +107,8 @@
    color: #ffffff;
    background-color: #3e2aa6;
  }
- 
+ @media only screen and (max-width: 600px) {
+  body {
+    background-color: #9c8fe6;
+  }
+}
