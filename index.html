@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Favicon Logo  -->
+
+    <link rel="shortcut icon" href="logo.jpg">
+    
+    <!-- title -->
+
+    <title>Calculator</title>
+
+    <!-- External  css -->
+    <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+
+
+ <div class="container">
+      <div class="row justify-content-center">
+         <div class="col mx-auto ms-auto">
+         <div class="calculator mx-auto ms-auto">
+          <input type="text" id="inputBox" placeholder="0" >
+       
+         <div class="button-wrap">
+            <button class="btn btn-operator">AC</button>
+            <button class="btn btn-operator">DEL</button>
+            <button class="btn btn-operator">%</button>
+            <button class="btn btn-operator">/</button>
+         </div>
+
+         <div class="button-wrap">
+            <button class="btn btn-clr">7</button>
+            <button class="btn btn-clr">8</button>
+            <button class="btn btn-clr">9</button>
+            <button class="btn btn-operator">*</button>
+         </div>
+
+         <div class="button-wrap">
+            <button class="btn btn-clr">4</button>
+            <button class="btn btn-clr">5</button>
+            <button class="btn btn-clr">6</button>
+            <button class="btn btn-operator">-</button>
+         </div>
+         
+         <div class="button-wrap">
+            <button class="btn btn-clr">1</button>
+            <button class="btn btn-clr">2</button>
+            <button class="btn btn-clr">3</button>
+            <button class="btn btn-operator">+</button>
+         </div>
+         <div class="button-wrap">
+            <button class="btn btn-clr">00</button>
+            <button class="btn btn-clr">0</button>
+            <button class="btn btn-clr">.</button>
+            <button class="btn btn-operator equalBtn">=</button>
+         </div>
+        
+
+
+
+        </div>    
+      </div>
+     </div>
+ </div>
+
+ </body>
+
+  <script>
+  
+        let input = document.getElementById('inputBox');
+        let buttons = document.querySelectorAll('button');
+        
+        let string = "";
+        let arr = Array.from(buttons);
+        arr.forEach(button => {
+            button.addEventListener('click', (e) =>{
+ 
+
+
+                if(e.target.innerHTML == '='){
+                    string = eval(string);
+                    input.value = string;
+                    input.style.boxShadow = 'none'; 
+                   
+                }
+        
+                else if(e.target.innerHTML == 'AC'){
+                    string = "";
+                    input.value = string;
+                }
+                else if(e.target.innerHTML == 'DEL'){
+                    string = string.substring(0, string.length-1);
+                    input.value = string;
+                }
+                else{
+                    string += e.target.innerHTML;
+                    input.value = string;
+                }
+                setTimeout(() => {
+                input.style.boxShadow = '5px 5px 20px rgba(66, 66, 171, 0.9)';
+                }, 300);
+
+
+
+               
+              
+        });
+    });
+
+  
+    
+  </script>
+ 
+ </html>
